@@ -97,17 +97,17 @@ public class RangeTest {
     // 30118953)
 
     @Test
-    public void centralValueShouldBeThree() {
-        Range obj1 = new Range(1, 5);
-        assertEquals("The central value of 1 and 5 should be 3",
-                3, obj1.getCentralValue(), .000000001d);
+    public void centralValueOfPositiveRange() {
+        Range positiveRange = new Range(2, 4);
+        assertEquals("The central value of -1 and 1 should be 0",
+                3, positiveRange.getCentralValue(), .000000001d);
     }
 
     @Test
-    public void centralValueInvalidInput() {
-        Range obj1 = new Range(-1, 1);
-        assertNotEquals("The central value of -1 and 1 should not be 0.8",
-                0.8, obj1.getCentralValue(), .000000001d);
+    public void centralValueOfNegativeRange() {
+        Range negativeRange = new Range(-5, -1);
+        assertEquals("The central value of a negative range from -5 to -1 should be -3",
+                -3, negativeRange.getCentralValue(), .000000001d);
     }
 
     @Test
@@ -134,7 +134,7 @@ public class RangeTest {
     @Test
     public void centralValueOfEvenLenghtRange() {
         Range oddLenghtRange = new Range(2, 6);
-        assertEquals("The central value of a symmetric range from 2 to 6 should be 4",
+        assertEquals("The central value of a symmetric range from 2 to 6 should be 6",
                 4, oddLenghtRange.getCentralValue(), .000000001d);
     }
 
