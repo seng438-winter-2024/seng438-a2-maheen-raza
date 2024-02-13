@@ -195,4 +195,56 @@ public class RangeTest {
                 obj1.contains(obj1.getUpperBound() + 0.000001d));
     }
 
+    // Test cases for getLowerbound() method written by Mehrnaz Zafari (UCID:
+    // 30118953)
+
+    @Test
+    public void lowerBoundOfPositiveRange() {
+        Range positiveRange = new Range(2, 5);
+        assertEquals("The lower bound of a positive range from 2 to 5 should be 2",
+                2, positiveRange.getLowerBound(), .000000001d);
+    }
+
+    @Test
+    public void lowerBoundOfNegativeRange() {
+        Range negativeRange = new Range(-5, -2);
+        assertEquals("The lower bound of a negative range from -5 to -2 should be -5",
+                -5, negativeRange.getLowerBound(), .000000001d);
+    }
+
+    @Test
+    public void lowerBoundOfSinglePointRange() {
+        Range singlePointRange = new Range(7, 7);
+        assertEquals("The lower bound of a single-point range with value 7 should be 7",
+                7, singlePointRange.getLowerBound(), .000000001d);
+    }
+
+    @Test
+    public void lowerBoundWithNonIntegerValue() {
+        Range nonIntegerRange = new Range(1.5, 4.5);
+        assertEquals("The lower bound of a range with non-integer values should be the start value",
+                1.5, nonIntegerRange.getLowerBound(), .000000001d);
+    }
+
+    @Test
+    public void lowerBoundWithNonIntegerStartValue() {
+        Range nonIntegerStartRange = new Range(1.5, 4.5);
+        assertEquals("The lower bound of a range with non-integer start value should be the start value",
+                1.5, nonIntegerStartRange.getLowerBound(), .000000001d);
+    }
+
+    @Test
+    public void lowerBoundOfLargePositiveRange() {
+        Range largePositiveRange = new Range(1e12, 2e12);
+        assertEquals("The lower bound of a large positive range should be the start value",
+                1e12, largePositiveRange.getLowerBound(), .000000001d);
+    }
+
+    @Test
+    public void lowerBoundOfLargeNegativeRange() {
+        Range largeNegativeRange = new Range(-2e12, -1e12);
+        assertEquals("The lower bound of a large negative range should be the start value",
+                -2e12, largeNegativeRange.getLowerBound(), .000000001d);
+    }
+
 }
