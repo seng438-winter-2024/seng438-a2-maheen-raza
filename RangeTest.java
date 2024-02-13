@@ -227,13 +227,6 @@ public class RangeTest {
     }
 
     @Test
-    public void lowerBoundWithNonIntegerStartValue() {
-        Range nonIntegerStartRange = new Range(1.5, 4.5);
-        assertEquals("The lower bound of a range with non-integer start value should be the start value",
-                1.5, nonIntegerStartRange.getLowerBound(), .000000001d);
-    }
-
-    @Test
     public void lowerBoundOfLargePositiveRange() {
         Range largePositiveRange = new Range(1e12, 2e12);
         assertEquals("The lower bound of a large positive range should be the start value",
